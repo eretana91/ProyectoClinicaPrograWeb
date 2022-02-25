@@ -1,0 +1,13 @@
+C:\Users\ereta\OneDrive\Documents\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\bin\Debug\netcoreapp3.1\BE.DAL.deps.json
+C:\Users\ereta\OneDrive\Documents\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\bin\Debug\netcoreapp3.1\BE.DAL.runtimeconfig.json
+C:\Users\ereta\OneDrive\Documents\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\bin\Debug\netcoreapp3.1\BE.DAL.runtimeconfig.dev.json
+C:\Users\ereta\OneDrive\Documents\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\bin\Debug\netcoreapp3.1\BE.DAL.dll
+C:\Users\ereta\OneDrive\Documents\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\bin\Debug\netcoreapp3.1\BE.DAL.pdb
+C:\Users\ereta\OneDrive\Documents\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.csproj.AssemblyReference.cache
+C:\Users\ereta\OneDrive\Documents\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ereta\OneDrive\Documents\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.AssemblyInfoInputs.cache
+C:\Users\ereta\OneDrive\Documents\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.AssemblyInfo.cs
+C:\Users\ereta\OneDrive\Documents\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.csproj.CoreCompileInputs.cache
+C:\Users\ereta\OneDrive\Documents\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.dll
+C:\Users\ereta\OneDrive\Documents\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.pdb
+C:\Users\ereta\OneDrive\Documents\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.genruntimeconfig.cache
