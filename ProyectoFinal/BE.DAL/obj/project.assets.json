@@ -5723,19 +5723,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ereta\\.nuget\\packages\\": {}
+    "C:\\Users\\aniga\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ereta\\OneDrive\\Documents\\ProyectoClinicaPrograWeb\\ProyectoFinal\\BE.DAL\\BE.DAL.csproj",
+      "projectUniqueName": "C:\\Users\\aniga\\Documents\\GitHub\\ProyectoClinicaPrograWeb\\ProyectoFinal\\BE.DAL\\BE.DAL.csproj",
       "projectName": "BE.DAL",
-      "projectPath": "C:\\Users\\ereta\\OneDrive\\Documents\\ProyectoClinicaPrograWeb\\ProyectoFinal\\BE.DAL\\BE.DAL.csproj",
-      "packagesPath": "C:\\Users\\ereta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ereta\\OneDrive\\Documents\\ProyectoClinicaPrograWeb\\ProyectoFinal\\BE.DAL\\obj\\",
+      "projectPath": "C:\\Users\\aniga\\Documents\\GitHub\\ProyectoClinicaPrograWeb\\ProyectoFinal\\BE.DAL\\BE.DAL.csproj",
+      "packagesPath": "C:\\Users\\aniga\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\aniga\\Documents\\GitHub\\ProyectoClinicaPrograWeb\\ProyectoFinal\\BE.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ereta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aniga\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5797,7 +5797,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }
