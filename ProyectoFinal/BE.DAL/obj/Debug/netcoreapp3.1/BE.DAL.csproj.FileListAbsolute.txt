@@ -11,3 +11,15 @@ C:\Users\ereta\OneDrive\Documents\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\
 C:\Users\ereta\OneDrive\Documents\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.dll
 C:\Users\ereta\OneDrive\Documents\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.pdb
 C:\Users\ereta\OneDrive\Documents\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.genruntimeconfig.cache
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\bin\Debug\netcoreapp3.1\BE.DAL.deps.json
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\bin\Debug\netcoreapp3.1\BE.DAL.runtimeconfig.json
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\bin\Debug\netcoreapp3.1\BE.DAL.runtimeconfig.dev.json
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\bin\Debug\netcoreapp3.1\BE.DAL.dll
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\bin\Debug\netcoreapp3.1\BE.DAL.pdb
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.AssemblyInfoInputs.cache
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.AssemblyInfo.cs
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.csproj.CoreCompileInputs.cache
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.dll
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.pdb
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL\obj\Debug\netcoreapp3.1\BE.DAL.genruntimeconfig.cache
