@@ -23,3 +23,13 @@ C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.BS\obj
 C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.BS\obj\Debug\netcoreapp3.1\BE.BS.dll
 C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.BS\obj\Debug\netcoreapp3.1\BE.BS.pdb
 C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.BS\obj\Debug\netcoreapp3.1\BE.BS.genruntimeconfig.cache
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.BS\obj\Debug\netcoreapp3.1\BE.BS.csproj.AssemblyReference.cache
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.BS\bin\Debug\netcoreapp3.1\BE.DAL.dll
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.BS\bin\Debug\netcoreapp3.1\BE.DAL.DO.dll
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.BS\bin\Debug\netcoreapp3.1\BE.DAL.EF.dll
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.BS\bin\Debug\netcoreapp3.1\BE.DAL.Repository.dll
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.BS\bin\Debug\netcoreapp3.1\BE.DAL.DO.pdb
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.BS\bin\Debug\netcoreapp3.1\BE.DAL.pdb
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.BS\bin\Debug\netcoreapp3.1\BE.DAL.EF.pdb
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.BS\bin\Debug\netcoreapp3.1\BE.DAL.Repository.pdb
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.BS\obj\Debug\netcoreapp3.1\BE.BS.csproj.CopyComplete

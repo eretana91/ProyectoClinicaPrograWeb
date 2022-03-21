@@ -24,12 +24,6 @@ C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.EF
 C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.EF\obj\Debug\netcoreapp3.1\BE.DAL.EF.pdb
 C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.EF\obj\Debug\netcoreapp3.1\BE.DAL.EF.genruntimeconfig.cache
 C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.EF\obj\Debug\netcoreapp3.1\BE.DAL.EF.csproj.AssemblyReference.cache
-C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.EF\bin\Debug\netcoreapp3.1\API.deps.json
-C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.EF\bin\Debug\netcoreapp3.1\API.runtimeconfig.json
-C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.EF\bin\Debug\netcoreapp3.1\API.runtimeconfig.dev.json
-C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.EF\bin\Debug\netcoreapp3.1\appsettings.Development.json
-C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.EF\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.EF\bin\Debug\netcoreapp3.1\API.exe
-C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.EF\bin\Debug\netcoreapp3.1\API.dll
-C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.EF\bin\Debug\netcoreapp3.1\API.pdb
 C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.EF\obj\Debug\netcoreapp3.1\BE.DAL.EF.csproj.CopyComplete
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.EF\bin\Debug\netcoreapp3.1\BE.DAL.DO.dll
+C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.EF\bin\Debug\netcoreapp3.1\BE.DAL.DO.pdb

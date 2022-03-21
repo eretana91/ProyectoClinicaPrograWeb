@@ -4,14 +4,14 @@
     "C:\\Users\\aniga\\Documents\\GitHub\\ProyectoClinicaPrograWeb\\ProyectoFinal\\BE.DAL.EF\\BE.DAL.EF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aniga\\Documents\\GitHub\\ProyectoClinicaPrograWeb\\ProyectoFinal\\API\\API.csproj": {
+    "C:\\Users\\aniga\\Documents\\GitHub\\ProyectoClinicaPrograWeb\\ProyectoFinal\\BE.DAL.DO\\BE.DAL.DO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aniga\\Documents\\GitHub\\ProyectoClinicaPrograWeb\\ProyectoFinal\\API\\API.csproj",
-        "projectName": "API",
-        "projectPath": "C:\\Users\\aniga\\Documents\\GitHub\\ProyectoClinicaPrograWeb\\ProyectoFinal\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\aniga\\Documents\\GitHub\\ProyectoClinicaPrograWeb\\ProyectoFinal\\BE.DAL.DO\\BE.DAL.DO.csproj",
+        "projectName": "BE.DAL.DO",
+        "projectPath": "C:\\Users\\aniga\\Documents\\GitHub\\ProyectoClinicaPrograWeb\\ProyectoFinal\\BE.DAL.DO\\BE.DAL.DO.csproj",
         "packagesPath": "C:\\Users\\aniga\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aniga\\Documents\\GitHub\\ProyectoClinicaPrograWeb\\ProyectoFinal\\API\\obj\\",
+        "outputPath": "C:\\Users\\aniga\\Documents\\GitHub\\ProyectoClinicaPrograWeb\\ProyectoFinal\\BE.DAL.DO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aniga\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -59,14 +59,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.21, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[3.1.5, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.2.2, )"
             }
           },
           "imports": [
@@ -80,9 +72,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
@@ -115,8 +104,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\aniga\\Documents\\GitHub\\ProyectoClinicaPrograWeb\\ProyectoFinal\\API\\API.csproj": {
-                "projectPath": "C:\\Users\\aniga\\Documents\\GitHub\\ProyectoClinicaPrograWeb\\ProyectoFinal\\API\\API.csproj"
+              "C:\\Users\\aniga\\Documents\\GitHub\\ProyectoClinicaPrograWeb\\ProyectoFinal\\BE.DAL.DO\\BE.DAL.DO.csproj": {
+                "projectPath": "C:\\Users\\aniga\\Documents\\GitHub\\ProyectoClinicaPrograWeb\\ProyectoFinal\\BE.DAL.DO\\BE.DAL.DO.csproj"
               }
             }
           }
