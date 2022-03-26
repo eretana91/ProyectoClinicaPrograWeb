@@ -23,4 +23,3 @@ C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.DO
 C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.DO\obj\Debug\netcoreapp3.1\BE.DAL.DO.dll
 C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.DO\obj\Debug\netcoreapp3.1\BE.DAL.DO.pdb
 C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.DO\obj\Debug\netcoreapp3.1\BE.DAL.DO.genruntimeconfig.cache
-C:\Users\aniga\Documents\GitHub\ProyectoClinicaPrograWeb\ProyectoFinal\BE.DAL.DO\obj\Debug\netcoreapp3.1\BE.DAL.DO.csproj.AssemblyReference.cache
