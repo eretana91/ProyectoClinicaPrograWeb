@@ -25,5 +25,13 @@ namespace BE.DAL.Repository
         {
             throw new NotImplementedException();
         }
+
+        private NDbContext _db
+        {
+            get
+            {
+                return dbContext as NDbContext;
+            }
+        }
     }
 }
