@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BE.DAL.Repository
 {
-    interface ICitasProgramadas
+    interface IRepositoryExpediente
     {
     }
 }
