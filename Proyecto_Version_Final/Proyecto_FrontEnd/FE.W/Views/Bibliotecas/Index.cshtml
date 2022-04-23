@@ -1,0 +1,47 @@
+﻿@model IEnumerable<FE.W.Models.Biblioteca>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TituloVideo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UrlVideo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionVideo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TituloVideo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrlVideo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionVideo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdVideo">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdVideo">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdVideo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

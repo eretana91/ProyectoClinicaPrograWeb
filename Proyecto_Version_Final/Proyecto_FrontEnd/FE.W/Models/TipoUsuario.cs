@@ -11,12 +11,12 @@ namespace FE.W.Models
     {
         public TipoUsuario()
         {
-            Usuarios = new HashSet<Usuarios>();
+            Usuario = new HashSet<Usuario>();
         }
 
-        public int CodigoTipoUsuario { get; set; }
-        public string Descripcion { get; set; }
+        public int IdTipoUsuario { get; set; }
+        public string TipoUsuario1 { get; set; }
 
-        public virtual ICollection<Usuarios> Usuarios { get; set; }
+        public virtual ICollection<Usuario> Usuario { get; set; }
     }
 }

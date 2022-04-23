@@ -1,0 +1,95 @@
+﻿@model IEnumerable<FE.W.Models.Expedientes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ciudad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Canton)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Distrito)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diagnostico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Antecendente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MediUtilizados)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnteQuirurgicos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fracturas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnteFamiliares)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CedulaNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ciudad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Canton)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Distrito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diagnostico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Antecendente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MediUtilizados)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnteQuirurgicos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fracturas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnteFamiliares)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CedulaNavigation.Cedula)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdExpediente">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdExpediente">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdExpediente">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
