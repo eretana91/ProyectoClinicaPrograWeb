@@ -9,14 +9,13 @@ namespace BE.API.DataModels
     {
         public TipoPago()
         {
-            
+            Pagos = new HashSet<Pagos>();
         }
 
-        //public string CategoryId { get; set; }
-        //public string CategoryName { get; set; }
-        //public string Description { get; set; }
-        //public byte[] Picture { get; set; }
+        public int TipoPago1 { get; set; }
+        public string NombrePago { get; set; }
 
-     
+        public virtual ICollection<Pagos> Pagos { get; set; }
+
     }
 }

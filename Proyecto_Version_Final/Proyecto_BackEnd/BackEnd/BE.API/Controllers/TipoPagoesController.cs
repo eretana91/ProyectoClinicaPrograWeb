@@ -29,7 +29,7 @@ namespace BE.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<models.TipoPago>>> GetTipoPago()
         {
-            var res = new BE.BS.TipoPagoes(_context).GetAllAsync();
+            var res = new BE.BS.TipoPagoes(_context).GetAll();
             List<models.TipoPago> mapaAux = _mapper.Map<IEnumerable<data.TipoPago>, IEnumerable<models.TipoPago>>(res).ToList();
             return mapaAux;
         }
@@ -38,15 +38,14 @@ namespace BE.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<models.TipoPago>> GetTipoPago(int id)
         {
-            var tipoPago = new BE.BS.TipoPagoes(_context).GetOneByIdAsync(id);
-
+            var tipoPago = new BE.BS.TipoPagoes(_context).GetOneById(id);
 
             if (tipoPago == null)
             {
                 return NotFound();
             }
-
             models.TipoPago mapaAux = _mapper.Map<data.TipoPago, models.TipoPago>(tipoPago);
+
             return mapaAux;
         }
 
@@ -56,7 +55,7 @@ namespace BE.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTipoPago(int id, models.TipoPago tipoPago)
         {
-            if (id != tipoPago.TipoPago)
+            if (id != tipoPago.TipoPago1)
             {
                 return BadRequest();
             }
@@ -86,17 +85,16 @@ namespace BE.API.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<models.TipoPago>> PostTipoPago(TipoPago tipoPago)
+        public async Task<ActionResult<models.TipoPago>> PostTipoPago(models.TipoPago tipoPago)
         {
             try
             {
                 data.TipoPago mapaAux = _mapper.Map<models.TipoPago, data.TipoPago>(tipoPago);
                 new BE.BS.TipoPagoes(_context).Insert(mapaAux);
             }
-            catch (Exception ee)
+            catch (Exception)
             {
-
-                BadRequest(ee);
+                BadRequest();
             }
 
             return CreatedAtAction("GetTipoPago", new { id = tipoPago.TipoPago1 }, tipoPago);
@@ -106,17 +104,19 @@ namespace BE.API.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<models.TipoPago>> DeleteTipoPago(int id)
         {
-            var tipoPago = await new BE.BS.TipoPagoes(_context).GetOneByIdAsync(id);
+            var tipoPago = new BE.BS.TipoPagoes(_context).GetOneById(id);
             if (tipoPago == null)
             {
                 return NotFound();
             }
+
             try
             {
                 new BE.BS.TipoPagoes(_context).Delete(tipoPago);
             }
             catch (Exception)
             {
+
                 BadRequest();
             }
             models.TipoPago mapaAux = _mapper.Map<data.TipoPago, models.TipoPago>(tipoPago);
