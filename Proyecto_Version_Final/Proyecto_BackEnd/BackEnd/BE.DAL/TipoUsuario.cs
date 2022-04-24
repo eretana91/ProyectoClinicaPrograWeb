@@ -30,7 +30,8 @@ namespace BE.DAL
 
         public Task<IEnumerable<data.TipoUsuario>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return null;
+            //return repo.GetAllAsync();
         }
 
         public data.TipoUsuario GetOneById(int id)
@@ -40,7 +41,8 @@ namespace BE.DAL
 
         public Task<data.TipoUsuario> GetOneByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return null;
+            //return repo.GetOneByIdAsync(id);
         }
 
         public void Insert(data.TipoUsuario t)

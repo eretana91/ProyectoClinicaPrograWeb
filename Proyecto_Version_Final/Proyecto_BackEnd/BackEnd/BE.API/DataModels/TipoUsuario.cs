@@ -5,18 +5,17 @@ using System.Threading.Tasks;
 
 namespace BE.API.DataModels
 {
-    public class Enfermedades
+    public class TipoUsuario
     {
-        public Enfermedades()
+        public TipoUsuario()
         {
-            
+            Usuario = new HashSet<Usuario>();
         }
 
-        //public string CategoryId { get; set; }
-        //public string CategoryName { get; set; }
-        //public string Description { get; set; }
-        //public byte[] Picture { get; set; }
+        public int IdTipoUsuario { get; set; }
+        public string TipoUsuario1 { get; set; }
 
-     
+        public virtual ICollection<Usuario> Usuario { get; set; }
+
     }
 }

@@ -29,7 +29,7 @@ namespace BE.BS
 
         public Task<IEnumerable<data.TipoUsuario>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return _dal.GetAllAsync();
         }
 
         public data.TipoUsuario GetOneById(int id)
@@ -39,7 +39,7 @@ namespace BE.BS
 
         public Task<data.TipoUsuario> GetOneByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return _dal.GetOneByIdAsync(id);
         }
 
         public void Insert(data.TipoUsuario t)

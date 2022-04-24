@@ -15,9 +15,9 @@ namespace BE.DAL.Repository
         {
 
         }
-
         public async Task<IEnumerable<TipoUsuario>> GetAllAsync()
         {
+            //return null;
             return await _db.TipoUsuario.Include(n => n.IdTipoUsuario).ToListAsync();
         }
 
@@ -25,6 +25,7 @@ namespace BE.DAL.Repository
         {
             return await _db.TipoUsuario.Include(n => n.IdTipoUsuario).SingleOrDefaultAsync(n => n.IdTipoUsuario == id);
         }
+
         private NDbContext _db
         {
             get
