@@ -1,0 +1,50 @@
+﻿@model FE.Models.Pagos
+@{
+    ViewBag.Title = "ListadoPagos";
+}
+
+<h2>Lista de pagos</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tipo de Pago</th>
+            <th>Monto</th>
+            <th>Banco</th>
+            <th>Cedula</th>
+            <th>Fecha</th>
+            <th>Notas</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in ViewBag.Result)
+    {
+        <tr>
+            <td>
+                @item.tipoPago
+            </td>
+               <td>
+                @item.monto
+            </td>
+               <td>
+                @item.banco
+            </td>
+            <td>
+                @item.cedula
+            </td>
+            <td>
+                10/20/2021
+            @*    @item.fecha*@
+            </td>
+            
+            <td>
+                @item.notas
+            </td>
+            <td>
+                <a href="@Url.Action("EditarPago","Pago", new {id = item.idPago})" class="btn-link">Editar</a> |
+                @*<a href="@Url.Action("EliminarUsuario","Usuario", new {id = item.Cedula})" class="btn-link">Eliminar</a>*@
+            </td>
+        </tr>
+    }
+
+</table>

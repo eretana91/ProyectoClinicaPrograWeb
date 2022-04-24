@@ -1,0 +1,51 @@
+﻿@model FE.Models.Expedientes
+@{
+    ViewBag.Title = "ListadoExpediente";
+}
+
+<h2>Lista de expedientes</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Cedula</th>
+            <th>Fecha Nacimiento</th>
+            <th>Dirección</th>
+            <th>Diagnostico</th>
+            <th>Antecedentes</th>
+            <th>Medicamentos</th>
+            
+        </tr>
+    </thead>
+
+    @foreach (var item in ViewBag.Result)
+    {
+        <tr>
+            <td>
+                @item.cedula
+            </td>
+            <td>
+                 10/20/2021
+            @*    @item.fecha*@
+            </td>
+            <td>
+                @item.ciudad / @item.canton / @item.distrito
+            </td>
+            <td>
+                @item.diagnostico
+            </td>
+            <td>
+                @item.anteQuirurgicos / @item.fracturas / @item.anteFamiliares
+            </td>
+
+            <td>
+                @item.mediUtilizados
+            </td>
+            <td>
+                <a href="@Url.Action("EditarExpediente","Expediente", new {id = item.idExpediente})" class="btn-link">Editar</a> |
+                @*<a href="@Url.Action("EliminarUsuario","Usuario", new {id = item.Cedula})" class="btn-link">Eliminar</a>*@
+            </td>
+        </tr>
+    }
+
+</table>
