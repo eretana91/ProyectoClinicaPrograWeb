@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DE.DAL.EF
+namespace BE.DAL.EF
 {
     public partial class NDbContext : DbContext
     {
