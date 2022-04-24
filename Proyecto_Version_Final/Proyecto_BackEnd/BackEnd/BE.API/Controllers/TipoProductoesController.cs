@@ -24,6 +24,7 @@ namespace BE.API.Controllers
             _context = context;
             _mapper = mapper;
         }
+
         // GET: api/TipoProductoes
         [HttpGet]
         public async Task<ActionResult<IEnumerable<models.TipoProducto>>> GetTipoProducto()
@@ -37,15 +38,14 @@ namespace BE.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<models.TipoProducto>> GetTipoProducto(int id)
         {
-            var tipoProducto = new BE.BS.TipoProductoes(_context).GetOneByIdAsync(id);
-
+            var tipoProducto = new BE.BS.TipoProductoes(_context).GetOneById(id);
 
             if (tipoProducto == null)
             {
                 return NotFound();
             }
-
             models.TipoProducto mapaAux = _mapper.Map<data.TipoProducto, models.TipoProducto>(tipoProducto);
+
             return mapaAux;
         }
 
@@ -55,7 +55,7 @@ namespace BE.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTipoProducto(int id, models.TipoProducto tipoProducto)
         {
-            if (id != tipoProducto.TipoProducto)
+            if (id != tipoProducto.TipoProducto1)
             {
                 return BadRequest();
             }
@@ -92,10 +92,9 @@ namespace BE.API.Controllers
                 data.TipoProducto mapaAux = _mapper.Map<models.TipoProducto, data.TipoProducto>(tipoProducto);
                 new BE.BS.TipoProductoes(_context).Insert(mapaAux);
             }
-            catch (Exception ee)
+            catch (Exception)
             {
-
-                BadRequest(ee);
+                BadRequest();
             }
 
             return CreatedAtAction("GetTipoProducto", new { id = tipoProducto.TipoProducto1 }, tipoProducto);
@@ -105,17 +104,19 @@ namespace BE.API.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<models.TipoProducto>> DeleteTipoProducto(int id)
         {
-            var tipoProducto = new BE.BS.TipoProductoes(_context).GetOneByIdAsync(id);
+            var tipoProducto = new BE.BS.TipoProductoes(_context).GetOneById(id);
             if (tipoProducto == null)
             {
                 return NotFound();
             }
+
             try
             {
                 new BE.BS.TipoProductoes(_context).Delete(tipoProducto);
             }
             catch (Exception)
             {
+
                 BadRequest();
             }
             models.TipoProducto mapaAux = _mapper.Map<data.TipoProducto, models.TipoProducto>(tipoProducto);

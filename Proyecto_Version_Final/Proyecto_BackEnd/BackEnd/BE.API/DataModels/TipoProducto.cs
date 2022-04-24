@@ -9,14 +9,12 @@ namespace BE.API.DataModels
     {
         public TipoProducto()
         {
-            
+            Inventarios = new HashSet<Inventarios>();
         }
 
-        //public string CategoryId { get; set; }
-        //public string CategoryName { get; set; }
-        //public string Description { get; set; }
-        //public byte[] Picture { get; set; }
+        public int TipoProducto1 { get; set; }
+        public string NombreTipoProducto { get; set; }
 
-     
+        public virtual ICollection<Inventarios> Inventarios { get; set; }
     }
 }
