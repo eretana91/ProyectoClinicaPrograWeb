@@ -81,10 +81,10 @@ namespace FE.W.Models
                     .HasMaxLength(200)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.CedulaNavigation)
-                    .WithMany(p => p.Enfermedades)
-                    .HasForeignKey(d => d.Cedula)
-                    .HasConstraintName("FK__Enfermeda__cedul__38996AB5");
+                //entity.HasOne(d => d.CedulaNavigation)
+                //    .WithMany(p => p.Enfermedades)
+                //    .HasForeignKey(d => d.Cedula)
+                //    .HasConstraintName("FK__Enfermeda__cedul__38996AB5");
             });
 
             modelBuilder.Entity<Events>(entity =>

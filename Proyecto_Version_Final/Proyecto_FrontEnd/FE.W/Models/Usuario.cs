@@ -9,12 +9,12 @@ namespace FE.W.Models
 {
     public partial class Usuario
     {
-        public Usuario()
-        {
-            Enfermedades = new HashSet<Enfermedades>();
-            Expedientes = new HashSet<Expedientes>();
-            Pagos = new HashSet<Pagos>();
-        }
+        //public Usuario()
+        //{
+        //    Enfermedades = new HashSet<Enfermedades>();
+        //    Expedientes = new HashSet<Expedientes>();
+        //    Pagos = new HashSet<Pagos>();
+        //}
 
         public string Cedula { get; set; }
         public string Nombre { get; set; }
@@ -24,9 +24,9 @@ namespace FE.W.Models
         public string Contrasenna { get; set; }
         public int? IdTipoUsuario { get; set; }
 
-        public virtual TipoUsuario IdTipoUsuarioNavigation { get; set; }
-        public virtual ICollection<Enfermedades> Enfermedades { get; set; }
-        public virtual ICollection<Expedientes> Expedientes { get; set; }
-        public virtual ICollection<Pagos> Pagos { get; set; }
+        //public virtual TipoUsuario IdTipoUsuarioNavigation { get; set; }
+        //public virtual ICollection<Enfermedades> Enfermedades { get; set; }
+        //public virtual ICollection<Expedientes> Expedientes { get; set; }
+        //public virtual ICollection<Pagos> Pagos { get; set; }
     }
 }
