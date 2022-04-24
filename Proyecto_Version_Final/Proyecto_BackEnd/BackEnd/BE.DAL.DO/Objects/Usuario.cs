@@ -16,7 +16,7 @@ namespace BE.DAL.DO.Objects
             Pagos = new HashSet<Pagos>();
         }
 
-        public string Cedula { get; set; }
+        public int Cedula { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
         public string Telefono { get; set; }

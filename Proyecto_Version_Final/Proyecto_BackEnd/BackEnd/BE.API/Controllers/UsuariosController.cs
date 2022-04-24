@@ -14,7 +14,7 @@ namespace BE.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuariosController : Controller
+    public class UsuariosController : ControllerBase
     {
         private readonly NDbContext _context;
         private readonly IMapper _mapper;
@@ -29,7 +29,7 @@ namespace BE.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<models.Usuario>>> GetUsuario()
         {
-            var res = await new BE.BS.Usuarios(_context).GetAllAsync();
+            var res = new BE.BS.Usuarios(_context).GetAll();
             List<models.Usuario> mapaAux = _mapper.Map<IEnumerable<data.Usuario>, IEnumerable<models.Usuario>>(res).ToList();
             return mapaAux;
         }
@@ -38,14 +38,14 @@ namespace BE.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<models.Usuario>> GetUsuario(int id)
         {
-            var usuario = await new BE.BS.Usuarios(_context).GetOneByIdAsync(id);
+            var usuario = new BE.BS.Usuarios(_context).GetOneById(id);
 
             if (usuario == null)
             {
                 return NotFound();
             }
-
             models.Usuario mapaAux = _mapper.Map<data.Usuario, models.Usuario>(usuario);
+
             return mapaAux;
         }
 
@@ -53,7 +53,7 @@ namespace BE.API.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUsuario(string id, models.Usuario usuario)
+        public async Task<IActionResult> PutUsuario(int id, models.Usuario usuario)
         {
             if (id != usuario.Cedula)
             {
@@ -85,7 +85,7 @@ namespace BE.API.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Usuario>> PostUsuario(models.Usuario usuario)
+        public async Task<ActionResult<models.Usuario>> PostUsuario(models.Usuario usuario)
         {
             try
             {
@@ -94,7 +94,6 @@ namespace BE.API.Controllers
             }
             catch (Exception)
             {
-
                 BadRequest();
             }
 
@@ -105,11 +104,12 @@ namespace BE.API.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<models.Usuario>> DeleteUsuario(int id)
         {
-            var usuario = await new BE.BS.Usuarios(_context).GetOneByIdAsync(id);
+            var usuario = new BE.BS.Usuarios(_context).GetOneById(id);
             if (usuario == null)
             {
                 return NotFound();
             }
+
             try
             {
                 new BE.BS.Usuarios(_context).Delete(usuario);
@@ -119,7 +119,6 @@ namespace BE.API.Controllers
 
                 BadRequest();
             }
-
             models.Usuario mapaAux = _mapper.Map<data.Usuario, models.Usuario>(usuario);
 
             return mapaAux;

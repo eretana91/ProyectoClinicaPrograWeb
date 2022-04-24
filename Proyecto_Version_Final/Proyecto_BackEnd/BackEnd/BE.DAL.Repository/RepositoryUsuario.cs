@@ -9,26 +9,22 @@ using data = BE.DAL.DO.Objects;
 
 namespace BE.DAL.Repository
 {
-    public class RepositoryUsuarios : Repository<data.Usuario>, IRepositoryUsuarios
+    public class RepositoryUsuario : Repository<data.Usuario>, IRepositoryUsuario
     {
-        public RepositoryUsuarios(NDbContext _dbContext) : base(_dbContext)
+        public RepositoryUsuario(NDbContext _dbContext) : base(_dbContext)
         {
 
         }
 
         public async Task<IEnumerable<Usuario>> GetAllAsync()
         {
+            //return null;
             return await _db.Usuario.Include(n => n.IdTipoUsuario).ToListAsync();
         }
 
-        public async Task<Usuario> GetOneByIdAsync(string id)
+        public async Task<Usuario> GetOneByIdAsync(int id)
         {
             return await _db.Usuario.Include(n => n.IdTipoUsuario).SingleOrDefaultAsync(n => n.Cedula == id);
-        }
-
-        public Task<Usuario> GetOneByIdAsync(int id)
-        {
-            throw new NotImplementedException();
         }
 
         private NDbContext _db

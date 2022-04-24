@@ -6,7 +6,7 @@ using data = BE.DAL.DO.Objects;
 
 namespace BE.DAL.Repository
 {
-    public interface IRepositoryUsuarios : IRepository<data.Usuario>
+    public interface IRepositoryUsuario : IRepository<data.Usuario>
     {
         Task<IEnumerable<data.Usuario>> GetAllAsync();
         Task<data.Usuario> GetOneByIdAsync(int id);

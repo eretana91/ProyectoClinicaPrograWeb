@@ -1,5 +1,4 @@
 ﻿using BE.DAL.DO.Objects;
-using BE.DAL.DO.Objetos;
 using BE.DAL.EF;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,7 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using data = BE.DAL.DO.Objetos;
+using data = BE.DAL.DO.Objects;
 
 namespace BE.DAL.Repository
 {
