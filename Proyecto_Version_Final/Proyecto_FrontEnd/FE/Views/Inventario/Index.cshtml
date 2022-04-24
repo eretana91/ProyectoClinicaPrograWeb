@@ -1,0 +1,50 @@
+﻿@model FE.Models.Inventario
+@{
+    ViewBag.Title = "ListadoInventario";
+}
+
+<h2>Lista de inventario</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Codigo</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Fecha Expiración</th>
+            <th>Notas</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in ViewBag.Result)
+    {
+        <tr>
+            <td>
+                @item.nombreProducto
+            </td>
+            <td>
+                @item.codigoBarras
+            </td>
+            <td>
+                @item.precio
+            </td>
+            <td>
+                @item.cantidad
+            </td>
+            <td>
+                 10/20/2021
+            @*    @item.fecha*@
+            </td>
+
+            <td>
+                @item.notas
+            </td>
+            <td>
+                <a href="@Url.Action("EditarInventario","Inventario", new {id = item.idProducto})" class="btn-link">Editar</a> |
+                @*<a href="@Url.Action("EliminarUsuario","Usuario", new {id = item.Cedula})" class="btn-link">Eliminar</a>*@
+            </td>
+        </tr>
+    }
+
+</table>
