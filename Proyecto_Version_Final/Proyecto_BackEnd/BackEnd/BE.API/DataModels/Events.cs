@@ -5,8 +5,12 @@ using System.Threading.Tasks;
 
 namespace BE.API.DataModels
 {
-    public partial class Events
+    public class Events
     {
+        public Events()
+        {
+
+        }
         public int EventId { get; set; }
         public string Subject { get; set; }
         public string Description { get; set; }

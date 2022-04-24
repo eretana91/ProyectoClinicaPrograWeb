@@ -85,7 +85,7 @@ namespace BE.API.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<models.Events>> PostEvents(Events events)
+        public async Task<ActionResult<models.Events>> PostEvents(models.Events events)
         {
             try
             {

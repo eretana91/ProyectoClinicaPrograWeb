@@ -30,7 +30,8 @@ namespace BE.DAL
 
         public Task<IEnumerable<data.Pagos>> GetAllAsync()
         {
-            return repo.GetAllAsync();
+            return null;
+            //return repo.GetAllAsync();
         }
 
         public data.Pagos GetOneById(int id)
@@ -40,7 +41,8 @@ namespace BE.DAL
 
         public Task<data.Pagos> GetOneByIdAsync(int id)
         {
-            return repo.GetOneByIdAsync(id);
+            return null;
+            //return repo.GetOneByIdAsync(id);
         }
 
         public void Insert(data.Pagos t)
