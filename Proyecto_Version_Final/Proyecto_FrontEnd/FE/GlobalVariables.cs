@@ -2,6 +2,6 @@
 {
     public static class GlobalVariables
     {
-        public static string strUri = "https://localhost:44329/";
+        public static string strUri = "http://localhost:38552";
     }
 }

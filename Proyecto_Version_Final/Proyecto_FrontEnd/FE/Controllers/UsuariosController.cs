@@ -13,12 +13,12 @@ namespace FE.Controllers
         public ActionResult Index()
         {
 
-            //HttpClient client = new HttpClient();
-            //client.BaseAddress = new Uri(GlobalVariables.strUri);
-            //client.DefaultRequestHeaders.Accept.Clear();
-            //client.DefaultRequestHeaders.Accept.Add(
-            //    new MediaTypeWithQualityHeaderValue("application/json"));
-            //HttpResponseMessage response = client.GetAsync("api/Categoria").Result;
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(GlobalVariables.strUri);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("api/Usuarios").Result;
 
             List<Usuario> ListaUsuario = new List<Usuario>();
             Usuario usuario = new Usuario();
@@ -30,11 +30,11 @@ namespace FE.Controllers
     
             ListaUsuario.Add(usuario);
 
-            //if (response.IsSuccessStatusCode)
-            if (true)
+            if (response.IsSuccessStatusCode)
+            //if (true)
             {
-                ViewBag.result = ListaUsuario;
-                //ViewBag.result = response.Content.ReadAsAsync<List<Categoria>>().Result;
+                //ViewBag.result = ListaUsuario;
+                //ViewBag.result = response.Content.ReadAsStreamAsync<List<Usuario>>().Result;
             }
             //else
             //{
