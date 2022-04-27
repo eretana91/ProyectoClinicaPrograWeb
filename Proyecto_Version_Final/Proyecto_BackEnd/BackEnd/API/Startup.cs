@@ -31,7 +31,12 @@ namespace API
              Configuration.GetConnectionString("GoodConnection")));
 
             // Register the Swagger generator, defining 1 or more Swagger documents
-            services.AddSwaggerGen();
+            //services.AddSwaggerGen();
+
+            services.AddSwaggerGen(options =>
+            {
+                options.CustomSchemaIds(type => type.ToString());
+            });
 
             services.AddControllers();
         }
