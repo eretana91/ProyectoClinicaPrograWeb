@@ -5,37 +5,45 @@
 
 <h2>Lista de usuarios</h2>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Email</th>
-            <th>Apellidos</th>
-            <th>Cedula</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
+@if (ViewBag.OperacionExitosa)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Apellidos</th>
+                <th>Cedula</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
 
-    @foreach (var item in ViewBag.Result)
-    {
-        <tr>
-            <td>
-                @item.Nombre
-            </td>
-               <td>
-                @item.Email
-            </td>
-               <td>
-                @item.Apellidos
-            </td>
-            <td>
-                @item.Cedula
-            </td>
-            <td>
-                <a href="@Url.Action("EditarUsuario","Usuario", new {id = item.Cedula})" class="btn-link">Editar</a> |
-                @*<a href="@Url.Action("EliminarUsuario","Usuario", new {id = item.Cedula})" class="btn-link">Eliminar</a>*@
-            </td>
-        </tr>
-    }
 
-</table>
+        @foreach (var item in ViewBag.Result)
+        {
+            <tr>
+                <td>
+                    @item.Nombre
+                </td>
+                <td>
+                    @item.Email
+                </td>
+                <td>
+                    @item.Apellidos
+                </td>
+                <td>
+                    @item.Cedula
+                </td>
+                <td>
+                    <a href="@Url.Action("EditarUsuario","Usuarios", new {id = item.Cedula})" class="btn-link">Editar</a> |
+                    <a href="@Url.Action("Delete","Usuarios", new {id = item.Cedula})" class="btn-link">Eliminar</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <h1>ViewBag.result</h1>
+}
