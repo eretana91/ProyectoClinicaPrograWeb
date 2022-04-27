@@ -8,7 +8,7 @@ using System.Net.Http.Headers;
 
 namespace FE.Controllers
 {
-    public class PagosController : Controller
+    public class TipoPagosController : Controller
     {
         public ActionResult Index()
         {
@@ -18,12 +18,12 @@ namespace FE.Controllers
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.GetAsync("api/Pagos").Result;
+            HttpResponseMessage response = client.GetAsync("api/TipoPagoes").Result;
 
             if (response.IsSuccessStatusCode)
             {
                 ViewBag.OperacionExitosa = true;
-                ViewBag.result = response.Content.ReadAsAsync<List<Pagos>>().Result;
+                ViewBag.result = response.Content.ReadAsAsync<List<TipoPagos>>().Result;
             }
             else
             {
@@ -47,7 +47,7 @@ namespace FE.Controllers
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
-            HttpResponseMessage response = client.GetAsync("api/Pagos/" + id.ToString()).Result;
+            HttpResponseMessage response = client.GetAsync("api/TipoPagoes/" + id.ToString()).Result;
 
             if (!response.IsSuccessStatusCode)
             {
@@ -59,11 +59,11 @@ namespace FE.Controllers
                 ViewBag.OperacionExitosa = true;
             }
 
-            return View(response.Content.ReadAsAsync<Pagos>().Result);
+            return View(response.Content.ReadAsAsync<TipoPagos>().Result);
         }
 
         [HttpPost]
-        public ActionResult Edit(Pagos Pagos)
+        public ActionResult Edit(TipoPagos TipoPagos)
         {
 
             HttpClient client = new HttpClient();
@@ -72,9 +72,9 @@ namespace FE.Controllers
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
-            var id = Pagos.idPago;
+            var id = TipoPagos.tipoPago1;
   
-            HttpResponseMessage response = client.PutAsJsonAsync($"api/Pagos/{id}", Pagos).Result;
+            HttpResponseMessage response = client.PutAsJsonAsync($"api/TipoPagoes/{id}", TipoPagos).Result;
 
             if (!response.IsSuccessStatusCode)
             {
@@ -98,7 +98,7 @@ namespace FE.Controllers
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.DeleteAsync("api/Pagos/" + id.ToString()).Result;
+            HttpResponseMessage response = client.DeleteAsync("api/TipoPagoes/" + id.ToString()).Result;
 
             if (response.IsSuccessStatusCode)
             {

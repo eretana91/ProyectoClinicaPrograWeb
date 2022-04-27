@@ -13,46 +13,27 @@ namespace FE.Controllers
         public ActionResult Index()
         {
 
-            //HttpClient client = new HttpClient();
-            //client.BaseAddress = new Uri(GlobalVariables.strUri);
-            //client.DefaultRequestHeaders.Accept.Clear();
-            //client.DefaultRequestHeaders.Accept.Add(
-            //    new MediaTypeWithQualityHeaderValue("application/json"));
-            //HttpResponseMessage response = client.GetAsync("api/Categoria").Result;
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(GlobalVariables.strUri);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("api/Expedientes").Result;
 
-            List<Expedientes> ListaExpediente = new List<Expedientes>();
-           Expedientes expediente = new Expedientes();
-            expediente.cedula = "114830553";
-            //expediente.fechaN = (2021,04,02);
-            expediente.ciudad = "Heredia";
-            expediente.canton = "Heredia";
-            expediente.distrito = "Mercedes Norte";
-            expediente.diagnostico = "N/A";
-            expediente.antecendente = "N/A";
-            expediente.mediUtilizados = "N/A";
-            expediente.anteQuirurgicos = "N/A";
-            expediente.fracturas = "N/A";
-            expediente.anteFamiliares = "N/A";
-        
-
-            ListaExpediente.Add(expediente);
-
-            //if (response.IsSuccessStatusCode)
-            if (true)
+            if (response.IsSuccessStatusCode)
             {
-                ViewBag.result = ListaExpediente;
-                //ViewBag.result = response.Content.ReadAsAsync<List<Categoria>>().Result;
+                ViewBag.OperacionExitosa = true;
+                ViewBag.result = response.Content.ReadAsAsync<List<Expedientes>>().Result;
             }
-            //else
-            //{
-            //    ViewBag.result = "Error";
-            //}
-                       
-                         
+            else
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+
             return View();
         }
-
-        public ActionResult EditarUsuario(int cedula)
+        public ActionResult create(Expedientes expedientes)
         {
 
             HttpClient client = new HttpClient();
@@ -61,40 +42,98 @@ namespace FE.Controllers
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
-            //HttpResponseMessage response = client.GetAsync("api/Categoria/" + cedula.ToString()).Result;
+            var id = expedientes.idExpediente;
 
-            //if (!response.IsSuccessStatusCode)
-            //{
-            //    ViewBag.result = "Error";
-            //}
+            HttpResponseMessage response = client.PutAsJsonAsync($"api/Usuarios/", expedientes).Result;
 
-            return View();
+            if (!response.IsSuccessStatusCode)
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+            else
+            {
+                ViewBag.OperacionExitosa = true;
+            }
 
-            //return View(response.Content.ReadAsAsync<Categoria>().Result);
+            return RedirectToAction("Index");
+        }
+        public ActionResult Edit(int id)
+        {
+            if (id == 0)
+                return View();
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(GlobalVariables.strUri);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.GetAsync("api/Expedientes/" + id.ToString()).Result;
+
+            if (!response.IsSuccessStatusCode)
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+            else
+            {
+                ViewBag.OperacionExitosa = true;
+            }
+
+            return View(response.Content.ReadAsAsync<Expedientes>().Result);
         }
 
-        //public ActionResult EditarUsuario(int cedula)
-        //{
+        [HttpPost]
+        public ActionResult Edit(Expedientes expediente)
+        {
 
-        //    HttpClient client = new HttpClient();
-        //    client.BaseAddress = new Uri(GlobalVariables.strUri);
-        //    client.DefaultRequestHeaders.Accept.Clear();
-        //    client.DefaultRequestHeaders.Accept.Add(
-        //        new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(GlobalVariables.strUri);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
 
-        //    //HttpResponseMessage response = client.GetAsync("api/Categoria/" + cedula.ToString()).Result;
+            var id = expediente.idExpediente;
 
-        //    //if (!response.IsSuccessStatusCode)
-        //    //{
-        //    //    ViewBag.result = "Error";
-        //    //}
+            HttpResponseMessage response = client.PutAsJsonAsync($"api/Expedientes/{id}", expediente).Result;
 
-        //    return View();
+            if (!response.IsSuccessStatusCode)
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+            else
+            {
+                ViewBag.OperacionExitosa = true;
+            }
 
-        //    //return View(response.Content.ReadAsAsync<Categoria>().Result);
-        //}
+            return RedirectToAction("Index");
+        }
 
 
+        public ActionResult Delete(int id)
+        {
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(GlobalVariables.strUri);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.DeleteAsync("api/Expedientes/" + id.ToString()).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                ViewBag.OperacionExitosa = true;
+            }
+            else
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+
+            return RedirectToAction("Index");
+        }
 
     }
 }

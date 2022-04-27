@@ -1,0 +1,96 @@
+﻿@model FE.Models.TipoProductos
+
+
+<h2>Pagos</h2>
+
+
+
+<div>
+    <a href="@Url.Action("Index", "TipoProductos")" class="btn btn-danger btn-full ">
+        <i class="fa fa-arrow-alt-circle-left"></i> Atrás
+    </a>
+</div>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <body>
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.tipoProducto1)
+
+
+
+
+
+            <div class="form-group">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.tipoProducto1, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.tipoProducto1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.tipoProducto1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.nombreTipoProducto, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.nombreTipoProducto, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.nombreTipoProducto, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Confirmar" class="btn btn-default btn-success" />
+                </div>
+            </div>
+        </div>
+
+
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+
+                $('#monto').on('input', function (event) {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                });
+
+
+                var data = '@TempData["ErrorMessage"]';
+
+                if (data === "") {
+                    console.log("Empty string")
+                } else {
+                    ErrorShowMessage(data);
+                }
+
+                var message = '@TempData["Message"]';
+
+                console.log(message);
+
+                if (message === "" || message == "") {
+                    console.log("Empty string")
+                } else {
+                    SuccessShowMessage(message);
+                }
+            });
+
+
+        </script>
+
+
+
+
+
+
+    </body>
+}
+
+

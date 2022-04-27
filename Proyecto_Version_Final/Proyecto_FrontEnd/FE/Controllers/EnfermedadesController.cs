@@ -8,7 +8,7 @@ using System.Net.Http.Headers;
 
 namespace FE.Controllers
 {
-    public class PagosController : Controller
+    public class EnfermedadesController : Controller
     {
         public ActionResult Index()
         {
@@ -18,12 +18,12 @@ namespace FE.Controllers
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.GetAsync("api/Pagos").Result;
+            HttpResponseMessage response = client.GetAsync("api/Enfermedades").Result;
 
             if (response.IsSuccessStatusCode)
             {
                 ViewBag.OperacionExitosa = true;
-                ViewBag.result = response.Content.ReadAsAsync<List<Pagos>>().Result;
+                ViewBag.result = response.Content.ReadAsAsync<List<Enfermedades>>().Result;
             }
             else
             {
@@ -47,7 +47,7 @@ namespace FE.Controllers
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
-            HttpResponseMessage response = client.GetAsync("api/Pagos/" + id.ToString()).Result;
+            HttpResponseMessage response = client.GetAsync("api/Enfermedades/" + id.ToString()).Result;
 
             if (!response.IsSuccessStatusCode)
             {
@@ -59,11 +59,11 @@ namespace FE.Controllers
                 ViewBag.OperacionExitosa = true;
             }
 
-            return View(response.Content.ReadAsAsync<Pagos>().Result);
+            return View(response.Content.ReadAsAsync<Enfermedades>().Result);
         }
 
         [HttpPost]
-        public ActionResult Edit(Pagos Pagos)
+        public ActionResult Edit(Enfermedades Enfermedades)
         {
 
             HttpClient client = new HttpClient();
@@ -72,9 +72,9 @@ namespace FE.Controllers
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
-            var id = Pagos.idPago;
+            var id = Enfermedades.idEnfermedad;
   
-            HttpResponseMessage response = client.PutAsJsonAsync($"api/Pagos/{id}", Pagos).Result;
+            HttpResponseMessage response = client.PutAsJsonAsync($"api/Enfermedades/{id}", Enfermedades).Result;
 
             if (!response.IsSuccessStatusCode)
             {
@@ -98,7 +98,7 @@ namespace FE.Controllers
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.DeleteAsync("api/Pagos/" + id.ToString()).Result;
+            HttpResponseMessage response = client.DeleteAsync("api/Enfermedades/" + id.ToString()).Result;
 
             if (response.IsSuccessStatusCode)
             {

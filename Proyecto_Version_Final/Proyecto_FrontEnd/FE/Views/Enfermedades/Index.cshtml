@@ -1,0 +1,34 @@
+﻿@model FE.Models.Enfermedades
+@{
+    ViewBag.Title = "Listado de Enfermedades";
+}
+
+<h2>Lista de Enfermedades</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre de la Enfermedad</th>
+            <th>Cedula</th>
+            
+        </tr>
+    </thead>
+
+    @foreach (var item in ViewBag.Result)
+    {
+        <tr>
+            <td>
+                @item.nombreEnfermedad
+            </td>
+
+            <td>
+                @item.cedula
+            </td>
+            <td>
+                <a href="@Url.Action("Edit","Enfermedades", new {id = item.idEnfermedad})" class="btn-link">Editar</a> |
+                <a href="@Url.Action("Delete","Enfermedades", new {id = item.idEnfermedad})" class="btn-link">Eliminar</a>
+            </td>
+        </tr>
+    }
+
+</table>

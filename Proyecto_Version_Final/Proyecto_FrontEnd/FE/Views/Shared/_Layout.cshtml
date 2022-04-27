@@ -74,7 +74,7 @@
                     <div id="collapseUsuarios" class="collapse" aria-labelledby="headingUsuarios" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Opciones de Usuarios:</h6>
-                            <a class="collapse-item" asp-area="" asp-controller="Usuarios" asp-action="EditarUsuario" style="margin-bottom:12px;">
+                            <a href="@Url.Action("Edit","Usuarios", new {id = 0})" class="collapse-item" style="margin-bottom:12px;">
                                 <i class="fa fa-plus-square" style="padding-right:5px"></i>Crear
                             </a>
                              <a class="collapse-item" asp-area="" asp-controller="Usuarios" asp-action="Index" style="margin-bottom:12px;">
@@ -88,6 +88,33 @@
             <!-- Divider -->
 
                 <hr class="sidebar-divider">
+            <!-- Nav Item - Pages Collapse Menu -->
+
+                <hr class="sidebar-divider">
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTipoUsuarios"
+                       aria-expanded="true" aria-controls="collapseTipoUsuarios">
+                        <i class="fa fa-user"></i>
+                        <span>TipoUsuarios</span>
+                    </a>
+                    <div id="collapseTipoUsuarios" class="collapse" aria-labelledby="headingTipoUsuarios" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Opciones:</h6>
+                            <a href="@Url.Action("Edit","TipoUsuarios", new {id = 0})" class="collapse-item" style="margin-bottom:12px;">
+                                <i class="fa fa-plus-square" style="padding-right:5px"></i>Crear
+                            </a>
+                             <a class="collapse-item" asp-area="" asp-controller="TipoUsuarios" asp-action="Index" style="margin-bottom:12px;">
+                                <i class="fa fa-th-list" style="padding-right:5px"></i>Listado Tipos de Usuarios
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
+
+            <!-- Divider -->
+
+                <hr class="sidebar-divider">
+
                 <!-- Nav Item - Inventario Collapse Menu -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInventario"
@@ -99,10 +126,34 @@
                          data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Opciones de Inventario:</h6>
-                             <a class="collapse-item" asp-area="" asp-controller="inventario" asp-action="create" style="margin-bottom:12px;">
+                             <a href="@Url.Action("Edit","Inventario", new {id = 0})" class="collapse-item" style="margin-bottom:12px;">
                                 <i class="fa fa-plus-square" style="padding-right:5px"></i>Crear
                             </a>
                              <a class="collapse-item" asp-area="" asp-controller="inventario" asp-action="Index" style="margin-bottom:12px;">
+                                <i class="fa fa-th-list" style="padding-right:5px"></i>Detalles
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+                            <!-- Nav Item - Inventario Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTipoProductos"
+                       aria-expanded="true" aria-controls="collapseTipoProductos">
+                        <i class="fa fa-box"></i>
+                        <span>TipoProductos</span>
+                    </a>
+                    <div id="collapseTipoProductos" class="collapse" aria-labelledby="headingTipoProductos"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Opciones:</h6>
+                             <a href="@Url.Action("Edit","TipoProductos", new {id = 0})" class="collapse-item" style="margin-bottom:12px;">
+                                <i class="fa fa-plus-square" style="padding-right:5px"></i>Crear
+                            </a>
+                             <a class="collapse-item" asp-area="" asp-controller="TipoProductos" asp-action="Index" style="margin-bottom:12px;">
                                 <i class="fa fa-th-list" style="padding-right:5px"></i>Detalles
                             </a>
                         </div>
@@ -123,7 +174,7 @@
                 <div id="collapsePagos" class="collapse" aria-labelledby="headingPagos" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Opciones de Pagos:</h6>
-                            <a class="collapse-item" asp-area="" asp-controller="pagos" asp-action="create" style="margin-bottom:12px;">
+                            <a href="@Url.Action("Edit","Pagos", new {id = 0})" class="collapse-item" style="margin-bottom:12px;">
                                 <i class="fa fa-plus-square" style="padding-right:5px"></i>Crear
                             </a>
 
@@ -133,26 +184,53 @@
                     </div>
                 </div>
             </li>
-
-
             <!-- Divider -->
             <hr class="sidebar-divider">
-            <!-- Nav Item - Pages Collapse Menu -->
+                        <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseVideos"
-                   aria-expanded="true" aria-controls="collapseVideos">
-                    <i class="fa fa-photo-video"></i>
-                    <span>Galería</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTipoPagos"
+                   aria-expanded="true" aria-controls="collapseTipoPagos">
+                    <i class="fa fa-university"></i>
+                    <span>Tipos de Pagos</span>
                 </a>
-                <div id="collapseVideos" class="collapse" aria-labelledby="headingVideos" data-parent="#accordionSidebar">
+                <div id="collapseTipoPagos" class="collapse" aria-labelledby="headingTipoPagos" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" asp-area="" asp-controller="biblioteca" asp-action="index" style="margin-bottom:12px;">
-                            <i class="fa fa-video" style="padding-right:5px"></i>Videos
+                        <h6 class="collapse-header">Tipos de Pagos:</h6>
+                            <a href="@Url.Action("Edit","TipoPagos", new {id = 0})" class="collapse-item" style="margin-bottom:12px;">
+                                <i class="fa fa-plus-square" style="padding-right:5px"></i>Crear
+                            </a>
+
+                         <a class="collapse-item" asp-area="" asp-controller="TipoPagos" asp-action="index" style="margin-bottom:12px;">
+                            <i class="fa fa-th-list" style="padding-right:5px"></i>Detalles
                         </a>
                     </div>
                 </div>
-
             </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+                        <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEnfermedades"
+                   aria-expanded="true" aria-controls="collapseEnfermedades">
+                    <i class="fa fa-university"></i>
+                    <span>Enfermedades</span>
+                </a>
+                <div id="collapseEnfermedades" class="collapse" aria-labelledby="headingEnfermedades" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Opciones de Enfermedades:</h6>
+                            <a href="@Url.Action("Edit","Enfermedades", new {id = 0})" class="collapse-item" style="margin-bottom:12px;">
+                                <i class="fa fa-plus-square" style="padding-right:5px"></i>Crear
+                            </a>
+
+                         <a class="collapse-item" asp-area="" asp-controller="Enfermedades" asp-action="index" style="margin-bottom:12px;">
+                            <i class="fa fa-th-list" style="padding-right:5px"></i>Detalles
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+      
             <!-- Divider -->
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -165,7 +243,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Expedientes:</h6>
 
-                             <a class="collapse-item" asp-area="" asp-controller="Expedientes" asp-action="create" style="margin-bottom:12px;">
+                             <a href="@Url.Action("Edit","Expedientes", new {id = 0})" class="collapse-item" style="margin-bottom:12px;">
                                 <i class="fa fa-book-medical" style="padding-right:5px"></i>Crear
                             </a>
 
@@ -178,22 +256,7 @@
             </li>
 
 
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCitas"
-                       aria-expanded="true" aria-controls="collapseExpedientes">
-                        <i class="fa fa-calendar-check"></i>
-                        <span>Citas</span>
-                    </a>
-                    <div id="collapseCitas" class="collapse" aria-labelledby="headingExpedientes" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" asp-area="" asp-controller="Citas" asp-action="index" style="margin-bottom:12px;">
-                                <i class="fa fa-calendar-plus" style="padding-right:5px"></i>Crear
-                            </a>
 
-                        </div>
-                    </div>
-
-                </li>
           
 
             <!-- Divider -->

@@ -1,6 +1,6 @@
 ﻿@model FE.Models.Pagos
 @{
-    ViewBag.Title = "ListadoPagos";
+    ViewBag.Title = "Listado de Pagos";
 }
 
 <h2>Lista de pagos</h2>
@@ -41,8 +41,8 @@
                 @item.notas
             </td>
             <td>
-                <a href="@Url.Action("EditarPago","Pagos", new {id = item.idPago})" class="btn-link">Editar</a> |
-                <a href="@Url.Action("EliminarPago","Pagos", new {id = item.idPago})" class="btn-link">Eliminar</a>
+                <a href="@Url.Action("Edit","Pagos", new {id = item.idPago})" class="btn-link">Editar</a> |
+                <a href="@Url.Action("Delete","Pagos", new {id = item.idPago})" class="btn-link">Eliminar</a>
             </td>
         </tr>
     }

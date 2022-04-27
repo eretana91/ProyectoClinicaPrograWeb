@@ -42,8 +42,8 @@
                 @item.mediUtilizados
             </td>
             <td>
-                <a href="@Url.Action("EditarExpediente","Expediente", new {id = item.idExpediente})" class="btn-link">Editar</a> |
-                @*<a href="@Url.Action("EliminarUsuario","Usuario", new {id = item.Cedula})" class="btn-link">Eliminar</a>*@
+                <a href="@Url.Action("Edit","Expedientes", new {id = item.idExpediente})" class="btn-link">Editar</a> |
+                <a href="@Url.Action("Delete","Expedientes", new {id = item.idExpediente})" class="btn-link">Eliminar</a>
             </td>
         </tr>
     }

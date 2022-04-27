@@ -1,0 +1,32 @@
+﻿@model FE.Models.TipoPagos
+@{
+    ViewBag.Title = "Listado de Tipos de Pagos";
+}
+
+<h2>Lista de pagos</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tipo de Pago</th>
+            <th>Nombre de Pago</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in ViewBag.Result)
+    {
+        <tr>
+            <td>
+                @item.tipoPago1
+            </td>
+               <td>
+                @item.nombrePago
+            </td>
+            <td>
+                <a href="@Url.Action("Edit","TipoPagos", new {id = item.tipoPago1})" class="btn-link">Editar</a> |
+                <a href="@Url.Action("Delete","TipoPagos", new {id = item.tipoPago1})" class="btn-link">Eliminar</a>
+            </td>
+        </tr>
+    }
+
+</table>

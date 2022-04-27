@@ -1,0 +1,32 @@
+﻿@model FE.Models.TipoProductos
+@{
+    ViewBag.Title = "Listado de Tipos de Usuarios";
+}
+
+<h2>Lista de pagos</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID Tipo Usuario</th>
+            <th>Nombre de Tipo de Usuarios</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in ViewBag.Result)
+    {
+        <tr>
+            <td>
+                @item.idTipoUsuario
+            </td>
+               <td>
+                @item.tipoUsuario1
+            </td>
+            <td>
+                <a href="@Url.Action("Edit","TipoUsuarios", new {id = item.idTipoUsuario})" class="btn-link">Editar</a> |
+                <a href="@Url.Action("Delete","TipoUsuarios", new {id = item.idTipoUsuario})" class="btn-link">Eliminar</a>
+            </td>
+        </tr>
+    }
+
+</table>
