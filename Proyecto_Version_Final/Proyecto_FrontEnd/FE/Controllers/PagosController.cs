@@ -34,12 +34,18 @@ namespace FE.Controllers
             return View();
         }
 
- 
+
         public ActionResult Edit(int id)
         {
-
             if (id == 0)
-               return View();
+            {
+                TempData["esCrear"] = true;
+                return View();
+
+            }
+
+            TempData["esCrear"] = false;
+
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(GlobalVariables.strUri);
@@ -63,7 +69,7 @@ namespace FE.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Pagos Pagos)
+        public ActionResult Edit(Pagos pagos)
         {
 
             HttpClient client = new HttpClient();
@@ -71,10 +77,20 @@ namespace FE.Controllers
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = new HttpResponseMessage();
 
-            var id = Pagos.idPago;
-  
-            HttpResponseMessage response = client.PutAsJsonAsync($"api/Pagos/{id}", Pagos).Result;
+            var id = pagos.idPago;
+            bool esCrear = Convert.ToBoolean(TempData["esCrear"]);
+
+
+            if (esCrear)
+            {
+                response = client.PostAsJsonAsync("api/Pagos", pagos).Result;
+            }
+            else
+            {
+                response = client.PutAsJsonAsync($"api/Pagos/{id}", pagos).Result;
+            }
 
             if (!response.IsSuccessStatusCode)
             {

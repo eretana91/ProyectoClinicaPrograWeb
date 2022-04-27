@@ -13,42 +13,27 @@ namespace FE.Controllers
         public ActionResult Index()
         {
 
-            //HttpClient client = new HttpClient();
-            //client.BaseAddress = new Uri(GlobalVariables.strUri);
-            //client.DefaultRequestHeaders.Accept.Clear();
-            //client.DefaultRequestHeaders.Accept.Add(
-            //    new MediaTypeWithQualityHeaderValue("application/json"));
-            //HttpResponseMessage response = client.GetAsync("api/Categoria").Result;
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(GlobalVariables.strUri);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("api/Inventarios").Result;
 
-            List<Inventario> ListaInventario = new List<Inventario>();
-            Inventario inventario = new Inventario();
-            inventario.tipoProducto = 1;
-            inventario.idProducto = 1;
-            inventario.nombreProducto = "Mesa";
-            inventario.codigoBarras = "1615601";
-            inventario.precio = "25000";
-            inventario.cantidad = 2;
-            //inventario.fechaExpiracion = 12/11/1991;
-            inventario.notas = "Mesa para comedor";
-
-            ListaInventario.Add(inventario);
-
-            //if (response.IsSuccessStatusCode)
-            if (true)
+            if (response.IsSuccessStatusCode)
             {
-                ViewBag.result = ListaInventario;
-                //ViewBag.result = response.Content.ReadAsAsync<List<Categoria>>().Result;
+                ViewBag.OperacionExitosa = true;
+                ViewBag.result = response.Content.ReadAsAsync<List<Inventario>>().Result;
             }
-            //else
-            //{
-            //    ViewBag.result = "Error";
-            //}
-                       
-                         
+            else
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+
             return View();
         }
-
-        public ActionResult EditarUsuario(int cedula)
+        public ActionResult create(Inventario Inventario)
         {
 
             HttpClient client = new HttpClient();
@@ -57,40 +42,115 @@ namespace FE.Controllers
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
-            //HttpResponseMessage response = client.GetAsync("api/Categoria/" + cedula.ToString()).Result;
+            var id = Inventario.idProducto;
 
-            //if (!response.IsSuccessStatusCode)
-            //{
-            //    ViewBag.result = "Error";
-            //}
+            HttpResponseMessage response = client.PutAsJsonAsync($"api/Inventarios/", Inventario).Result;
 
-            return View();
+            if (!response.IsSuccessStatusCode)
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+            else
+            {
+                ViewBag.OperacionExitosa = true;
+            }
 
-            //return View(response.Content.ReadAsAsync<Categoria>().Result);
+            return RedirectToAction("Index");
+        }
+        public ActionResult Edit(int id)
+        {
+            if (id == 0)
+            {
+                TempData["esCrear"] = true;
+                return View();
+
+            }
+
+            TempData["esCrear"] = false;
+
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(GlobalVariables.strUri);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.GetAsync("api/Inventarios/" + id.ToString()).Result;
+
+            if (!response.IsSuccessStatusCode)
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+            else
+            {
+                ViewBag.OperacionExitosa = true;
+            }
+
+            return View(response.Content.ReadAsAsync<Inventario>().Result);
         }
 
-        //public ActionResult EditarUsuario(int cedula)
-        //{
+        [HttpPost]
+        public ActionResult Edit(Inventario Inventario)
+        {
 
-        //    HttpClient client = new HttpClient();
-        //    client.BaseAddress = new Uri(GlobalVariables.strUri);
-        //    client.DefaultRequestHeaders.Accept.Clear();
-        //    client.DefaultRequestHeaders.Accept.Add(
-        //        new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(GlobalVariables.strUri);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = new HttpResponseMessage();
 
-        //    //HttpResponseMessage response = client.GetAsync("api/Categoria/" + cedula.ToString()).Result;
-
-        //    //if (!response.IsSuccessStatusCode)
-        //    //{
-        //    //    ViewBag.result = "Error";
-        //    //}
-
-        //    return View();
-
-        //    //return View(response.Content.ReadAsAsync<Categoria>().Result);
-        //}
+            var id = Inventario.idProducto;
+            bool esCrear = Convert.ToBoolean(TempData["esCrear"]);
 
 
+            if (esCrear)
+            {
+                response = client.PostAsJsonAsync("api/Inventarios", Inventario).Result;
+            }
+            else
+            {
+                response = client.PutAsJsonAsync($"api/Inventarios/{id}", Inventario).Result;
+            }
+
+            if (!response.IsSuccessStatusCode)
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+            else
+            {
+                ViewBag.OperacionExitosa = true;
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
+        public ActionResult Delete(int id)
+        {
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(GlobalVariables.strUri);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.DeleteAsync("api/Inventarios/" + id.ToString()).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                ViewBag.OperacionExitosa = true;
+            }
+            else
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+
+            return RedirectToAction("Index");
+        }
 
     }
 }

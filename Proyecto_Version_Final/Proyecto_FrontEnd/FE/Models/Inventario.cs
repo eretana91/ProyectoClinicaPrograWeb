@@ -14,6 +14,6 @@ namespace FE.Models
         [DataType(DataType.Date)]
         public Nullable<System.DateTime> fechaExpiracion { get; set; }
         public string notas { get; set; }
-        public int? tipoProducto { get; set; }
+        //public int? tipoProducto { get; set; }
     }
 }

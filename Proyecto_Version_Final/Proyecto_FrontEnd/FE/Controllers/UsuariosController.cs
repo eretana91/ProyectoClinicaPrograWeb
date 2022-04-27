@@ -61,7 +61,14 @@ namespace FE.Controllers
         public ActionResult Edit(int id)
         {
             if (id == 0)
+            {
+                TempData["esCrear"] = true;
                 return View();
+
+            }
+
+            TempData["esCrear"] = false;
+
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(GlobalVariables.strUri);
@@ -93,10 +100,20 @@ namespace FE.Controllers
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = new HttpResponseMessage();
 
             var id = usuario.Cedula;
+            bool esCrear = Convert.ToBoolean(TempData["esCrear"]);
 
-            HttpResponseMessage response = client.PutAsJsonAsync($"api/Usuarios/{id}", usuario).Result;
+
+            if(esCrear)
+            {
+                response = client.PostAsJsonAsync("api/Usuarios", usuario).Result;
+            }
+            else
+            {
+                 response = client.PutAsJsonAsync($"api/Usuarios/{id}", usuario).Result;
+            }
 
             if (!response.IsSuccessStatusCode)
             {

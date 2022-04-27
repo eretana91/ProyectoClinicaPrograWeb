@@ -23,7 +23,7 @@ namespace FE.Controllers
             if (response.IsSuccessStatusCode)
             {
                 ViewBag.OperacionExitosa = true;
-                ViewBag.result = response.Content.ReadAsAsync<List<TipoUsuarios>>().Result;
+                ViewBag.result = response.Content.ReadAsAsync<List<Usuario>>().Result;
             }
             else
             {
@@ -33,13 +33,42 @@ namespace FE.Controllers
 
             return View();
         }
-
- 
-        public ActionResult Edit(int id)
+        public ActionResult create(Usuario usuario)
         {
 
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(GlobalVariables.strUri);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var id = usuario.Cedula;
+
+            HttpResponseMessage response = client.PutAsJsonAsync($"api/TipoUsuarios/", usuario).Result;
+
+            if (!response.IsSuccessStatusCode)
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+            else
+            {
+                ViewBag.OperacionExitosa = true;
+            }
+
+            return RedirectToAction("Index");
+        }
+        public ActionResult Edit(int id)
+        {
             if (id == 0)
-               return View();
+            {
+                TempData["esCrear"] = true;
+                return View();
+
+            }
+
+            TempData["esCrear"] = false;
+
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(GlobalVariables.strUri);
@@ -59,11 +88,11 @@ namespace FE.Controllers
                 ViewBag.OperacionExitosa = true;
             }
 
-            return View(response.Content.ReadAsAsync<TipoUsuarios>().Result);
+            return View(response.Content.ReadAsAsync<Usuario>().Result);
         }
 
         [HttpPost]
-        public ActionResult Edit(TipoUsuarios TipoUsuarios)
+        public ActionResult Edit(Usuario usuario)
         {
 
             HttpClient client = new HttpClient();
@@ -71,10 +100,20 @@ namespace FE.Controllers
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = new HttpResponseMessage();
 
-            var id = TipoUsuarios.idTipoUsuario;
-  
-            HttpResponseMessage response = client.PutAsJsonAsync($"api/TipoUsuarios/{id}", TipoUsuarios).Result;
+            var id = usuario.Cedula;
+            bool esCrear = Convert.ToBoolean(TempData["esCrear"]);
+
+
+            if (esCrear)
+            {
+                response = client.PostAsJsonAsync("api/TipoUsuarios", usuario).Result;
+            }
+            else
+            {
+                response = client.PutAsJsonAsync($"api/TipoUsuarios/{id}", usuario).Result;
+            }
 
             if (!response.IsSuccessStatusCode)
             {
