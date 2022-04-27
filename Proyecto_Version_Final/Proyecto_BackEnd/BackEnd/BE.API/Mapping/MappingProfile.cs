@@ -12,7 +12,7 @@ namespace BE.API.Mapping
         public MappingProfile()
         {
             CreateMap<data.Enfermedades, DataModels.Enfermedades>().ReverseMap();
-            CreateMap<data.Biblioteca, DataModels.Biblioteca>().ReverseMap();
+            //CreateMap<data.Biblioteca, DataModels.Biblioteca>().ReverseMap();
             CreateMap<data.Events, DataModels.Events>().ReverseMap();
             CreateMap<data.Expedientes, DataModels.Expedientes>().ReverseMap();
             CreateMap<data.Inventarios, DataModels.Inventarios>().ReverseMap();

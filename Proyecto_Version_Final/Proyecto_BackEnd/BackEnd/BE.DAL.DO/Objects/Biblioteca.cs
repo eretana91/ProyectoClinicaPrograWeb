@@ -7,11 +7,11 @@ using System.Collections.Generic;
 
 namespace BE.DAL.DO.Objects
 {
-    public partial class Biblioteca
-    {
-        public int IdVideo { get; set; }
-        public string TituloVideo { get; set; }
-        public string UrlVideo { get; set; }
-        public string DescripcionVideo { get; set; }
-    }
+    //public partial class Biblioteca
+    //{
+    //    public int IdVideo { get; set; }
+    //    public string TituloVideo { get; set; }
+    //    public string UrlVideo { get; set; }
+    //    public string DescripcionVideo { get; set; }
+    //}
 }

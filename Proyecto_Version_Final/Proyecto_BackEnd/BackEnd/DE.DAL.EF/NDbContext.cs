@@ -16,7 +16,7 @@ namespace BE.DAL.EF
         {
         }
 
-        public virtual DbSet<Biblioteca> Biblioteca { get; set; }
+        //public virtual DbSet<Biblioteca> Biblioteca { get; set; }
         public virtual DbSet<Enfermedades> Enfermedades { get; set; }
         public virtual DbSet<Events> Events { get; set; }
         public virtual DbSet<Expedientes> Expedientes { get; set; }
@@ -30,27 +30,27 @@ namespace BE.DAL.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Biblioteca>(entity =>
-            {
-                entity.HasKey(e => e.IdVideo)
-                    .HasName("PK__Bibliote__D2D0AD2A35816A9D");
+            //modelBuilder.Entity<Biblioteca>(entity =>
+            //{
+            //    entity.HasKey(e => e.IdVideo)
+            //        .HasName("PK__Bibliote__D2D0AD2A35816A9D");
 
-                entity.Property(e => e.IdVideo).HasColumnName("idVideo");
+            //    entity.Property(e => e.IdVideo).HasColumnName("idVideo");
 
-                entity.Property(e => e.DescripcionVideo)
-                    .HasColumnName("descripcionVideo")
-                    .HasMaxLength(200)
-                    .IsUnicode(false);
+            //    entity.Property(e => e.DescripcionVideo)
+            //        .HasColumnName("descripcionVideo")
+            //        .HasMaxLength(200)
+            //        .IsUnicode(false);
 
-                entity.Property(e => e.TituloVideo)
-                    .HasColumnName("tituloVideo")
-                    .HasMaxLength(200)
-                    .IsUnicode(false);
+            //    entity.Property(e => e.TituloVideo)
+            //        .HasColumnName("tituloVideo")
+            //        .HasMaxLength(200)
+            //        .IsUnicode(false);
 
-                entity.Property(e => e.UrlVideo)
-                    .HasColumnName("urlVideo")
-                    .IsUnicode(false);
-            });
+            //    entity.Property(e => e.UrlVideo)
+            //        .HasColumnName("urlVideo")
+            //        .IsUnicode(false);
+            //});
 
             modelBuilder.Entity<Enfermedades>(entity =>
             {
