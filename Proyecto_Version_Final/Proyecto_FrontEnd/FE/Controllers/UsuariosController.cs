@@ -18,34 +18,23 @@ namespace FE.Controllers
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.GetAsync("api/Usuarios").Result;
-
-            List<Usuario> ListaUsuario = new List<Usuario>();
-            Usuario usuario = new Usuario();
-            usuario.IdTipoUsuario = 1;
-            usuario.Nombre = "Erick";
-            usuario.Email = "XXX";
-            usuario.Apellidos = "Retana";
-            usuario.Cedula = "113540616";
-    
-            ListaUsuario.Add(usuario);
+            HttpResponseMessage response = client.GetAsync("api/Usuarios").Result;   
 
             if (response.IsSuccessStatusCode)
-            //if (true)
             {
-                //ViewBag.result = ListaUsuario;
-                //ViewBag.result = response.Content.ReadAsStreamAsync<List<Usuario>>().Result;
+                ViewBag.OperacionExitosa = true;
+                ViewBag.result = response.Content.ReadAsAsync<List<Usuario>>().Result;
             }
-            //else
-            //{
-            //    ViewBag.result = "Error";
-            //}
-                       
+            else
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";  
+            }                       
                          
             return View();
         }
 
-        public ActionResult EditarUsuario(int cedula)
+        public ActionResult EditarUsuario(int id)
         {
 
             HttpClient client = new HttpClient();
@@ -54,40 +43,71 @@ namespace FE.Controllers
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
-            //HttpResponseMessage response = client.GetAsync("api/Categoria/" + cedula.ToString()).Result;
+            HttpResponseMessage response = client.GetAsync("api/Usuarios/"+id.ToString()).Result;
 
-            //if (!response.IsSuccessStatusCode)
-            //{
-            //    ViewBag.result = "Error";
-            //}
+            if (!response.IsSuccessStatusCode)
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+            else
+            {
+                ViewBag.OperacionExitosa = true;
+            }
 
-            return View();
-
-            //return View(response.Content.ReadAsAsync<Categoria>().Result);
+            return View(response.Content.ReadAsAsync<Usuario>().Result);
         }
 
-        //public ActionResult EditarUsuario(int cedula)
-        //{
+        [HttpPost]
+        public ActionResult EditarUsuario(Usuario usuario)
+        {
 
-        //    HttpClient client = new HttpClient();
-        //    client.BaseAddress = new Uri(GlobalVariables.strUri);
-        //    client.DefaultRequestHeaders.Accept.Clear();
-        //    client.DefaultRequestHeaders.Accept.Add(
-        //        new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(GlobalVariables.strUri);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
 
-        //    //HttpResponseMessage response = client.GetAsync("api/Categoria/" + cedula.ToString()).Result;
+            var id = usuario.Cedula;
 
-        //    //if (!response.IsSuccessStatusCode)
-        //    //{
-        //    //    ViewBag.result = "Error";
-        //    //}
+            HttpResponseMessage response = client.PutAsJsonAsync($"api/Usuarios/{id}", usuario).Result;
 
-        //    return View();
+            if (!response.IsSuccessStatusCode)
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+            else
+            {
+                ViewBag.OperacionExitosa = true;
+            }
 
-        //    //return View(response.Content.ReadAsAsync<Categoria>().Result);
-        //}
+            return RedirectToAction("Index");
+        }
 
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
 
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(GlobalVariables.strUri);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.DeleteAsync("api/Usuarios/"+id.ToString()).Result;
 
+            if (response.IsSuccessStatusCode)
+            {
+                ViewBag.OperacionExitosa = true;
+            }
+            else
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+
+            return RedirectToAction("Index");
+        }
+      
     }
 }

@@ -13,41 +13,28 @@ namespace FE.Controllers
         public ActionResult Index()
         {
 
-            //HttpClient client = new HttpClient();
-            //client.BaseAddress = new Uri(GlobalVariables.strUri);
-            //client.DefaultRequestHeaders.Accept.Clear();
-            //client.DefaultRequestHeaders.Accept.Add(
-            //    new MediaTypeWithQualityHeaderValue("application/json"));
-            //HttpResponseMessage response = client.GetAsync("api/Categoria").Result;
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(GlobalVariables.strUri);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("api/Pagos").Result;
 
-            List<Pagos> ListaPago = new List<Pagos>();
-            Pagos pago = new Pagos();
-            pago.tipoPago = 1;
-            pago.idPago = 1;
-            pago.monto = 10000;
-            pago.banco = "BAC";
-            pago.cedula = "114830553";
-            //pago.fechaPago = 12/11/1991;
-            pago.notas = "Adelanto de pago";
-
-            ListaPago.Add(pago);
-
-            //if (response.IsSuccessStatusCode)
-            if (true)
+            if (response.IsSuccessStatusCode)
             {
-                ViewBag.result = ListaPago;
-                //ViewBag.result = response.Content.ReadAsAsync<List<Categoria>>().Result;
+                ViewBag.OperacionExitosa = true;
+                ViewBag.result = response.Content.ReadAsAsync<List<Pagos>>().Result;
             }
-            //else
-            //{
-            //    ViewBag.result = "Error";
-            //}
-                       
-                         
+            else
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+
             return View();
         }
 
-        public ActionResult EditarUsuario(int cedula)
+        public ActionResult EditarPago(int id)
         {
 
             HttpClient client = new HttpClient();
@@ -56,40 +43,71 @@ namespace FE.Controllers
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
-            //HttpResponseMessage response = client.GetAsync("api/Categoria/" + cedula.ToString()).Result;
+            HttpResponseMessage response = client.GetAsync("api/Pagos/" + id.ToString()).Result;
 
-            //if (!response.IsSuccessStatusCode)
-            //{
-            //    ViewBag.result = "Error";
-            //}
+            if (!response.IsSuccessStatusCode)
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+            else
+            {
+                ViewBag.OperacionExitosa = true;
+            }
 
-            return View();
-
-            //return View(response.Content.ReadAsAsync<Categoria>().Result);
+            return View(response.Content.ReadAsAsync<Pagos>().Result);
         }
 
-        //public ActionResult EditarUsuario(int cedula)
-        //{
+        [HttpPost]
+        public ActionResult EditarPagos(Pagos Pagos)
+        {
 
-        //    HttpClient client = new HttpClient();
-        //    client.BaseAddress = new Uri(GlobalVariables.strUri);
-        //    client.DefaultRequestHeaders.Accept.Clear();
-        //    client.DefaultRequestHeaders.Accept.Add(
-        //        new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(GlobalVariables.strUri);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
 
-        //    //HttpResponseMessage response = client.GetAsync("api/Categoria/" + cedula.ToString()).Result;
+            var id = Pagos.idPago;
 
-        //    //if (!response.IsSuccessStatusCode)
-        //    //{
-        //    //    ViewBag.result = "Error";
-        //    //}
+            HttpResponseMessage response = client.PutAsJsonAsync($"api/Pagos/{id}", Pagos).Result;
 
-        //    return View();
+            if (!response.IsSuccessStatusCode)
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+            else
+            {
+                ViewBag.OperacionExitosa = true;
+            }
 
-        //    //return View(response.Content.ReadAsAsync<Categoria>().Result);
-        //}
+            return RedirectToAction("Index");
+        }
 
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
 
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(GlobalVariables.strUri);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.DeleteAsync("api/Pagos/" + id.ToString()).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                ViewBag.OperacionExitosa = true;
+            }
+            else
+            {
+                ViewBag.OperacionExitosa = false;
+                ViewBag.result = "Error al consultar la información";
+            }
+
+            return RedirectToAction("Index");
+        }
 
     }
 }
